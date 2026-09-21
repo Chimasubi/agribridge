@@ -1,0 +1,54 @@
+/* Color ramp tokens shared by both themes.
+   Semantic roles (primary, accent, danger…) live in styles.css :root.
+   Live values (price series, ports, statuses, tiers) use these consistent hues
+   so charts and maps stay legible in light and dark mode. */
+
+:root {
+  --c-emerald: #0e7a55;
+  --c-emerald-2: #2bc387;
+  --c-green: #12945a;
+  --c-lime: #a3c32f;
+  --c-amber: #d98e04;
+  --c-gold: #c9920e;
+  --c-orange: #b45e0a;
+  --c-red: #d22f4b;
+  --c-rose: #e0627a;
+  --c-blue: #2f6fe4;
+  --c-cyan: #2ba7c3;
+  --c-violet: #6a5ae0;
+  --c-ink: #0c1712;
+  --c-paper: #f7faf8;
+}
+
+/* Semantic aliases used by the cross-app pages (Admin, pills, status chips) */
+:root {
+  --c-success: var(--c-green);
+  --c-success-soft: #e2f6ec;
+  --c-danger: var(--c-red);
+  --c-danger-soft: #fdeadf;
+  --c-info: var(--c-blue);
+  --c-info-soft: #e8eefc;
+  --c-ink-50: rgba(12, 23, 18, .5);
+}
+
+[data-theme="dark"] {
+  --c-emerald: #2bc387;
+  --c-emerald-2: #4cd8a0;
+  --c-green: #34d494;
+  --c-amber: #f2b320;
+  --c-gold: #ffd35c;
+  --c-red: #ff5d75;
+  --c-blue: #6d9bff;
+  --c-cyan: #4cc6e2;
+  --c-violet: #9d8fff;
+}
+
+[data-theme="dark"] {
+  --c-success: var(--c-green);
+  --c-success-soft: #10301f;
+  --c-danger: var(--c-red);
+  --c-danger-soft: #3a1a23;
+  --c-info: var(--c-blue);
+  --c-info-soft: #17233f;
+  --c-ink-50: rgba(232, 240, 236, .5);
+}

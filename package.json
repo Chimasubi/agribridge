@@ -1,0 +1,20 @@
+{
+  "name": "agribridge",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Verified B2B trade, escrow & brokerage for the Africa ⇄ Russia/EU corridor (MVP)",
+  "workspaces": ["server", "web"],
+  "scripts": {
+    "install:all": "npm install",
+    "dev:server": "npm run dev --workspace server",
+    "dev:web": "npm run dev --workspace web",
+    "build": "npm run build --workspace web",
+    "start": "npm run start --workspace server",
+    "reset": "rm -rf server/data",
+    "dry": "npm run build && npm run start"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}
