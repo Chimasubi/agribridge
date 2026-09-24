@@ -30,11 +30,12 @@ export function Home() {
 
   return (
     <div>
-      <section className="hero">
+      <section className="hero rise">
         <span className="prism a" />
         <span className="prism b" />
-        <div className="hero-eyebrow">
-          <Sparkles size={13} /> The verified digital corridor for Africa ⇄ Eurasia agro trade
+        <span className="glint" />
+        <div className="hero-eyebrow eyebrow-motion">
+          <span className="ping"><Sparkles size={13} /></span> The verified digital corridor for Africa ⇄ Eurasia agro trade
         </div>
         <h1>
           Trade agri<span style={{ color: "var(--primary)" }}>culture without risking</span> the cargo <em>or</em> the trust.
@@ -51,6 +52,20 @@ export function Home() {
             Read the vision <Globe2 size={16} />
           </button>
         </div>
+        {ov?.commodities?.length > 0 && (
+          <div className="ticker mt2" aria-label="Live corridor commodity prices">
+            <div className="ticker-track">
+              {[...ov.commodities, ...ov.commodities].map((c, i) => (
+                <span key={`${c.key}-${i}`} className="ticker-item">
+                  <i>{c.label}</i> <b className="mono">${fmtNum(c.latest)}</b>
+                  <span style={{ color: c.change_3m_pct >= 0 ? "var(--success)" : "var(--danger)" }}>
+                    {c.change_3m_pct >= 0 ? "▲" : "▼"} {Math.abs(c.change_3m_pct).toFixed(1)}%
+                  </span>
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
       </section>
 
       <section className="grid grid-4 mt">
