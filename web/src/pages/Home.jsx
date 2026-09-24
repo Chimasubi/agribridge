@@ -225,3 +225,25 @@ export function Home() {
 function dwell(d) {
   return `${d} ${d === 1 ? "day" : "days"}`;
 }
+/* ------------------------------------------------------------------- ticker
+   Live corridor ticker — spread across the hero, fed by /api/market/overview.
+   The mono/green ticks keep the corridor feeling awake. */
+export function Ticker({ commodities }) {
+  if (!commodities?.length) return null;
+  const items = [...commodities, ...commodities];
+  return (
+    <div className="ticker" aria-hidden="true">
+      <div className="ticker-track">
+        {items.map((c, i) => (
+          <span key={i} className="ticker-item">
+            <span className="ticker-c">{c.label}</span>
+            <span className="ticker-v mono">${fmtUSD(c.latest)}</span>
+            <span className={c.change_3m_pct >= 0 ? "ticker-up" : "ticker-down"}>
+              {c.change_3m_pct >= 0 ? "▲" : "▼"} {Math.abs(c.change_3m_pct).toFixed(1)}%
+            </span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
